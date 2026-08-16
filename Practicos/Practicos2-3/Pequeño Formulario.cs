@@ -54,7 +54,7 @@ namespace Practicos.Practicos2_3
             if(!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back) //si no es un número ni una tecla de control
             {
                 e.Handled = true; //cancela el evento si no es un dígito ni una tecla de control
-                MessageBox.Show("Solo se permiten números en el campo DNI.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Solo se permiten números.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -63,7 +63,7 @@ namespace Practicos.Practicos2_3
             if (!char.IsLetter(e.KeyChar) && e.KeyChar != ' ' && e.KeyChar != (char) Keys.Back) //permite letras, espacios y backspace
             {
                 e.Handled = true; //cancela el evento si no es una letra ni una tecla de control
-                MessageBox.Show("Solo se permiten letras en el campo Apellido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Solo se permiten letras.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -72,7 +72,7 @@ namespace Practicos.Practicos2_3
             if (!char.IsLetter(e.KeyChar) && e.KeyChar != ' ' && e.KeyChar != (char)Keys.Back) //permite letras, espacios y backspace
             {
                 e.Handled = true; //cancela el evento si no es una letra ni una tecla de control
-                MessageBox.Show("Solo se permiten letras en el campo Nombre.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Solo se permiten letras.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -96,5 +96,52 @@ namespace Practicos.Practicos2_3
                 LModificar.Text = "";
             }
         }
-    }
+
+        private void Pequeño_Formulario_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void radioButtonVaron_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButtonVaron.Checked)
+            {
+                pictureBox1.Image = Properties.Resources.icono_hombre; // Cambia la imagen a icono_hombre.png
+            }
+        }
+
+        private void radioButtonMujer_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButtonMujer.Checked)
+            {
+                pictureBox1.Image = Properties.Resources.icono_mujer; // Cambia la imagen a icono_mujer.png
+            }
+        }
+
+        private void textTel_TextChanged(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void textTel_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permite números y Backspace
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                // Permite el + solamente si es el primer carácter
+                if (e.KeyChar == '+' && textTel.Text.Length == 0)
+                {
+                    return;
+                }
+                e.Handled = true;
+                MessageBox.Show(
+                    "Solo permiten números y un signo + al principio.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
 }
