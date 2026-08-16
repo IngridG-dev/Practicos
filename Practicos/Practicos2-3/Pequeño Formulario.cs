@@ -92,6 +92,13 @@ namespace Practicos.Practicos2_3
                 textNombre.Clear();
                 textApellido.Clear();
                 textDni.Clear();
+                textTel.Clear();
+                radioButtonMujer.Checked = false;
+                radioButtonVaron.Checked = false;
+                pictureBox1.Image = null; // Limpiar la imagen del PictureBox
+                checkBoxMaster.Checked = false;
+                checkBoxNaranja.Checked = false;
+                checkBoxVisa.Checked = false;
                 // Limpiar el Label de resultado
                 LModificar.Text = "";
             }
@@ -143,5 +150,10 @@ namespace Practicos.Practicos2_3
                     "Solo permiten números y un signo + al principio.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
         }
+    }
 }

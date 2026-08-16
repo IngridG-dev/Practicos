@@ -16,7 +16,7 @@ namespace Practicos
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Practicos2_3.Pequeño_Formulario());
+            Application.Run(new MDIParent1());
         }
     }
 }
